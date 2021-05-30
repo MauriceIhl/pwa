@@ -1,0 +1,323 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#__next {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+}
+h1, h2 {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+input {
+  width: 40px;
+  border: 1px solid rgb(233, 233, 233);
+  padding: .8em 0 .8em .8em;
+  font-weight: 400;
+}
+
+button {
+  border: 1px solid black;
+  border-radius: 30px;
+  padding: .8em 2em;
+  margin: 0 .5em;
+  color: white;
+  font-weight: 600;
+  background: black;
+  transition: .2s;
+}
+
+button:hover {
+  background-color: transparent;
+  color: black;
+}
+
+
+.oneEm {
+  padding: 1em; 
+}
+
+/* --------------- Variables ------------------ */
+
+$black: #1C1C1C;
+
+/* --------------- Menu Design ---------------- */
+
+header {
+  height: 70px;
+  width: 100%;
+
+  .menuBar {
+    width: 100%;
+    height: 100%;
+    padding: 0 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+
+    .toggle {
+      height: 30%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: space-between;
+
+        span {
+          position: relative;
+          height: 3px;
+          width: 30px;
+          background-color: black;
+          border-radius: 15px;
+          transition: transform 250ms ease;
+        }  
+     
+    }
+
+    input {
+      display: block;
+      position: absolute;
+      left: .6em;
+      z-index: 2;
+      height: 50%;
+      opacity: 0;
+      -webkit-touch-callout: none;
+    }
+
+    @media all and (max-width:490px) {
+      .mobile {
+        top: 70px;
+        left: 0;
+        width: 100%;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        z-index: 3;
+        padding: 0 1em 1.5em 1em;
+        background-color: white;
+        transform: scale(1, 0);
+        transform-origin: top;
+        transition: transform 200ms ease-in 100ms;
+        border-bottom: 1px solid rgb(233, 233, 233);
+        border-top: 1px solid rgb(233, 233, 233);
+
+          a {
+            opacity: 0;
+            padding: .6em 0 0 0;
+            margin-top: 0.6em;
+            transition: opacity 200ms ease-out 0;
+          }
+      }
+
+   
+    }
+  }
+}
+
+#menuBar input:checked ~ #mobile {
+  transition: transform 350ms;
+  transform: scale(1, 1);
+
+  a {
+    opacity: 1;
+    transition: opacity 200ms ease-out 250ms;
+   }
+}
+
+
+#menuBar input:checked ~ #toggle {
+
+  span {
+    transition: transform 200ms ease;
+  }
+
+  span:nth-child(2) {
+    transform: scale(0);
+  }
+  span:nth-child(1) {
+    top: 9px;
+    transform: rotate(45deg);
+  }
+
+  span:nth-child(3) {
+    transform: rotate(-45deg);
+    bottom: 9px;
+  }
+}
+
+@media all and (min-width:490px) {
+
+  header {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 70px;
+
+    .menuBar {
+      width: 100%;
+      height: 100%;
+      max-width: 1200px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+
+      
+    .toggle, input {
+      display: none;
+    }
+
+      .mobile {
+        display: flex;
+        position: relative;
+        align-items: center;
+        flex-direction: row;
+      }  
+
+      .menuItem {
+        padding: 0 1em;
+        font-size: 100%;
+      }
+
+      .menuItem:hover {
+        text-decoration: underline 2px $black;
+      }
+
+      .cartIcon {
+        display: flex;
+
+        span {
+          background-color: $black;
+          width: 20px;
+          height: 20px;
+          text-align: center;
+          color: white;
+          vertical-align: middle;
+          border-radius: 10px;
+          font-size: 80%;
+        }
+      }
+    }
+
+    .menuBar::before {
+      content: "";
+      display: block;
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      right: 0;
+      height: 70px;
+      width: 100vw;
+      border-bottom: solid rgb(202, 202, 202) 1px;
+    }
+  } 
+}
+
+
+
+
+
+/* --------------- Footer Design ---------------- */
+
+footer {
+  width: 100%;
+  height: auto;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 40px 0;
+  border-top: solid rgb(202, 202, 202) 1px;
+  margin-bottom: 50px;
+
+  .footerSection {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    padding: 0 1.5em;
+
+
+    .footerDescription, .footerPrivacy {
+      width: 100%;
+    }
+
+    .footerPrivacy {
+      ul {
+        margin: 0;
+        padding: 0;
+        
+        li {
+          list-style-type: none;
+          padding: 0 0 15px 0; 
+        }
+      }
+    }
+
+    .footerSM {
+      width: 100%;
+      padding: 20px 0;
+
+    }
+
+    .footerSMIcons {
+      width: 50%;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+
+      .icon {
+        padding: 0 25px 0 0;
+      }
+    }
+
+   
+  }
+
+  @media all and (min-width: 950px) {
+    .footerSection {
+      flex-direction: row;
+
+      .footerDescription {
+        width: 50%;
+        padding-right: 10%;
+      }
+    
+      .footerSM, .footerPrivacy {
+        width: 25%;
+      }
+
+      .footerSM {
+        padding: 0 2em;
+
+        .footerSMIcons {
+          width: 80%;
+        }
+      }
+    }
+  }
+}
+
+img {
+  object-fit: cover;
+  height: auto;
+}

@@ -1,0 +1,97 @@
+
+/* ------------- variables --------------- */
+$background: #f5f5f5; 
+
+.shop {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    .shopWindow {
+        width: 100%;
+        padding: 0.5em; 
+        margin-top: 1px;
+        background-color: white;
+    
+
+            .itemWindow {
+                display: flex;
+                flex-wrap: wrap;
+                width: 100%;
+            }
+
+                .productPreview {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    padding: 1em ;
+                    width: 100%;
+                    box-sizing: border-box;
+                }     
+
+            @media all and (min-width:490px) {
+                .productPreview {
+                    width: 50%;
+                }     
+            }
+
+            @media all and (min-width:980px) {
+                .productPreview {
+                    width: calc(100% / 3);
+                }     
+            }
+
+
+            
+
+            .productSpecs { 
+                display: flex;
+                flex-direction: column;
+
+                span {
+                    margin-top: 5px;
+                }
+            }
+        }
+
+        @media all and (min-width:490px) {
+            .shopWindow {
+                padding: 2.8em 2.4em; 
+                margin: 4em 20px; 
+                max-width: 1200px;
+            }     
+        }
+          
+    .shopImg {
+        width: 100%;
+      }
+
+    .checkout {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        @media all and (min-width:490px) {
+            flex-direction: row;
+        }
+    }
+}
+ 
+  
+.shop::before {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -2;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    background-color: $background;
+    box-sizing: border-box;
+}
+
+
+

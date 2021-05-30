@@ -1,0 +1,120 @@
+.itemList{
+    text-align: left;
+    table {
+        width: 100%;
+        border-spacing: 0;
+        border: 1px solid #e9e9e9;
+
+        thead {
+            th {
+                border: none;
+                padding: 1em 0;
+                margin: 0;
+                background-color: #fbfbfb;         
+            }
+
+
+            @media all and (max-width:560px) {
+                .thDesktop {
+                    display: none;
+                }
+            }
+        }
+
+        tbody {
+            .item {
+                position: relative;
+                height: 60px;
+
+                img {
+                    padding: 5px;
+                    height: 60px;
+                }
+
+                td {
+                    border: none;
+                    padding: 0;
+                    margin: 0;
+                    border-top: 1px solid #e9e9e9;
+                }
+
+               
+                @media all and (max-width:560px) {
+                    .imgCart {
+                        display: none;
+                    }    
+                }
+            }
+        }
+
+        .removeBtn {
+            padding: 0;
+            width: 2em;
+            height: 2em;
+            background-color: transparent;
+            color: #b8b8b8;
+            border-color: #b8b8b8;
+        }
+
+        .removeBtn:hover {
+            border-color: tomato;
+            color: tomato;
+        }
+    }
+
+    .backToShop {
+        border: 1px solid black;
+        border-radius: 30px;
+        padding: .5em 2em;
+    }
+
+    .total {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #e9e9e9;
+
+        .totalTitle {
+            background-color: #fbfbfb;
+            width: 100%;
+            height: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 1em; 
+        }
+
+        .totalAmount {
+            width: 100%;
+            height: 60px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            border-top: 1px solid #e9e9e9;
+            padding: 0 1em;
+            align-items: center;
+        }
+    }
+
+    .totalBtnSection {
+        margin-top: 40px;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        a {
+            display: block;
+        }
+    }
+
+    @media all and (min-width:490px) {
+        .total {
+            width: 50%;
+            margin-left: 50%;
+        }   
+    }
+}
+
+                       
