@@ -4,6 +4,7 @@ import client from "../client"
 import { GlobalProvider } from "../components/context"
 import Head from 'next/head'
 
+const access = false 
 
 
 function MyApp({ Component, pageProps}) {
@@ -36,13 +37,16 @@ function MyApp({ Component, pageProps}) {
       <link rel="apple-touch-icon" href="/apple-icon.png"></link>
       <meta name="theme-color" content="#317EFB" />
     </Head>
-
-    <ApolloProvider client={client}> 
+   {
+     access ?
+     <ApolloProvider client={client}> 
      <GlobalProvider>
       <Component {...pageProps} />
       </GlobalProvider>
     </ApolloProvider>
-    </>
+    :""
+   }
+   </> 
   )
 }
 
