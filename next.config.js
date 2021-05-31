@@ -8,5 +8,8 @@ module.exports = withPWA({
     }, 
     images: {
         domains: ['website.mi-portfolio.de']
-    }
+    }, 
+    env: {
+        SESSION_KEY: 'testPWA',
+    },
 })
