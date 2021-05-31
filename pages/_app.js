@@ -2,12 +2,38 @@ import '../styles/globals.scss'
 import { ApolloProvider } from '@apollo/client';
 import client from "../client"
 import { GlobalProvider } from "../components/context"
+import { useState, useEffect } from "react"
 import Head from 'next/head'
 
-const access = false 
+
 
 
 function MyApp({ Component, pageProps}) {
+  const[access, setAccess] = useState(false)
+  const[session, setSession] = useState()
+  const[input, setInput] = useState("")
+
+  useEffect(() => {
+    let sessionValue = localStorage.getItem("Session")
+    sessionValue = JSON.parse( sessionValue )
+
+    if (sessionValue == "accepted") {{
+      setSession(sessionValue)
+      setAccess(true)
+    }}
+  }, [])
+
+  const handleInput = (value) => {
+    setInput(value)
+  }
+
+  const handleSubmit = () => {
+    if(input == process.env.SESSION_KEY) {
+      localStorage.setItem("Session", JSON.stringify("accepted"))
+    }
+    setInput('')
+    window.location.reload()
+  }
 
   return (
     <>
@@ -44,7 +70,15 @@ function MyApp({ Component, pageProps}) {
       <Component {...pageProps} />
       </GlobalProvider>
     </ApolloProvider>
-    :""
+    :
+    <div className="accessWindow">
+      <div className="accessBox">
+      <p>Diese Seite dient nur zu Demonstrationszwecken im Rahmen einer Untersuchung. Diese Seite nutzt den LocalStorage.</p>
+      <label>Passwort</label>
+      <input onChange={(e) => handleInput(e.target.value)} className="pwaccess"></input>
+      <button type="submit" onClick={handleSubmit}>Einverstanden</button>
+      </div>
+    </div>
    }
    </> 
   )
