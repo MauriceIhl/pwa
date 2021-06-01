@@ -6,19 +6,14 @@ import { useState, useEffect } from "react"
 import Head from 'next/head'
 
 
-
-
 function MyApp({ Component, pageProps}) {
   const[access, setAccess] = useState(false)
-  const[session, setSession] = useState()
   const[input, setInput] = useState("")
 
   useEffect(() => {
     let sessionValue = localStorage.getItem("Session")
     sessionValue = JSON.parse( sessionValue )
-
     if (sessionValue == "accepted") {{
-      setSession(sessionValue)
       setAccess(true)
     }}
   }, [])
@@ -63,13 +58,13 @@ function MyApp({ Component, pageProps}) {
       <link rel="apple-touch-icon" href="/apple-icon.png"></link>
       <meta name="theme-color" content="#317EFB" />
     </Head>
-   {
-     access ?
-     <ApolloProvider client={client}> 
-     <GlobalProvider>
-      <Component {...pageProps} />
-      </GlobalProvider>
-    </ApolloProvider>
+    
+    {
+     access ? <ApolloProvider client={client}> 
+              <GlobalProvider>
+                <Component {...pageProps} />
+                </GlobalProvider>
+              </ApolloProvider>
     :
     <div className="accessWindow">
       <div className="accessBox">
@@ -80,8 +75,8 @@ function MyApp({ Component, pageProps}) {
       </div>
     </div>
    }
-   </> 
-  )
+ </> 
+ )
 }
 
 export default MyApp

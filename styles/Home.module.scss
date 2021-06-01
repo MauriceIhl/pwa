@@ -1,0 +1,11 @@
+.home {
+    width: 100%; 
+    height: auto;
+    display: flex;
+    justify-content: center;
+
+    .innerHTML {
+        width: 100%;
+        max-width: 1200px;
+    }
+}
