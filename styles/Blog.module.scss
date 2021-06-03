@@ -1,0 +1,50 @@
+$background: #f5f5f5; 
+
+.blog {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    .blogWindow {
+        width: 100%; 
+        margin-top: 1px;
+        background-color: white;
+        padding: 0 1.5em;
+    }
+
+    .singleBlog {
+        padding: 1.34em 2.3em;
+    }
+
+    @media all and (min-width:490px) {
+        .blogWindow {
+            margin: 4em 20px; 
+            max-width: 1200px;
+
+            .blogPreview {
+                border-bottom: 1px solid #eee;
+                margin: 0;
+                padding: 5.34em 6.67em;
+            }
+        } 
+        
+        .singleBlog {
+            padding: 5.34em 6.67em;
+        }
+    }
+}
+
+.blog::before {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -2;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    background-color: $background;
+    box-sizing: border-box;
+}

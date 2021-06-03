@@ -5,6 +5,7 @@ import Footer from "../../components/DOM_Elements/footer"
 import Menu from "../../components/DOM_Elements/menu"
 import { useEffect, useState } from "react"
 import styles from "../../styles/Blog.module.scss"
+import Link from "next/link"
 
 
 export async function getStaticProps({ params }) {
@@ -59,9 +60,16 @@ const BlogPage = ( {params, data}) => {
   return (
     <>
     <Menu></Menu>
-    <main className={styles.singleBlog}>
-        <h2>{post.title}</h2>
-        <div dangerouslySetInnerHTML={{__html: post.content}}></div>
+    <main className={styles.blog}>
+      <div className={styles.blogWindow}>
+        <div className={styles.singleBlog}>
+          <h2>{post.title}</h2>
+          <div dangerouslySetInnerHTML={{__html: post.content}}></div>
+          <Link href="/blog">
+            <a><button>Zurück</button></a>
+          </Link>
+        </div>
+      </div>
     </main>
     <Footer></Footer>
     </>

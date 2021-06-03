@@ -23,19 +23,23 @@ const Blog = ({data}) => {
     return (
         <>
         <Menu></Menu>
-        <main>
+        <main className={styles.blog}>
+            <div className={styles.blogWindow}>
             {
                 data ? data.map( post => {
                     return(
-                        <div className={styles.blogs} key={post.id}>
+                        <div className={styles.blogPreview} key={post.id}>
+                            <h2>{post.title}</h2>
                             <div dangerouslySetInnerHTML={{__html: post.excerpt}} className={styles.bloginnerHTML}></div>
+                            <br />
                             <Link href={`/blog/${post.slug}-${post.id}`}>
-                                <a>{">> Zum Beitrag"}</a>
+                                <a>{">> Weiterlesen"}</a>
                             </Link>
                         </div>
                     )
                 }) : "Noch keine Posts"
             }
+            </div>
         </main>
         <Footer></Footer>
         </>

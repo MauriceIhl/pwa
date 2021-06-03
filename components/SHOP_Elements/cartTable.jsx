@@ -57,7 +57,7 @@ const CartTable = () => {
 
     return (
         <div className={style.itemList}>
-            { cart.length ? <>
+            { cart?.length ? <>
             <div className="oneEm">
             <table>
                     <thead>
