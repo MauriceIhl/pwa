@@ -36,7 +36,7 @@ const AddToCart = (  {product, amount} ) => {
     }, [item])
 
     useEffect(() => {
-        if(cart.length) {
+        if(cart) {
             localStorage.setItem("Cart", JSON.stringify(cart))
         }
         let total = 0
