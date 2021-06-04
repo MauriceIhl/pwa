@@ -58,8 +58,13 @@ function MyApp({ Component, pageProps}) {
       <link rel="apple-touch-icon" href="/apple-icon.png"></link>
       <meta name="theme-color" content="#317EFB" />
     </Head>
+    <ApolloProvider client={client}> 
+              <GlobalProvider>
+                <Component {...pageProps} />
+                </GlobalProvider>
+              </ApolloProvider>
     
-    {
+    {/* {
      access ? <ApolloProvider client={client}> 
               <GlobalProvider>
                 <Component {...pageProps} />
@@ -74,7 +79,7 @@ function MyApp({ Component, pageProps}) {
       <button type="submit" onClick={handleSubmit}>Einverstanden</button>
       </div>
     </div>
-   }
+   } */}
  </> 
  )
 }

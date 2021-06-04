@@ -15,7 +15,17 @@ $background: #f5f5f5;
     }
 
     .singleBlog {
-        padding: 1.34em 2.3em;
+        padding: 1.5em 0 2em;
+    }
+
+    .blogPreview {
+        border-bottom: 1px solid #eee;
+        margin: 0;
+        padding: 1.5em 0;
+    }
+
+    .blogPreview:last-child {
+        border: none;
     }
 
     @media all and (min-width:490px) {

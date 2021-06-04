@@ -1,5 +1,5 @@
 import { Context } from "../../components/context"
-import { useContext, useEffect, useState } from "react"
+import { useContext, useEffect } from "react"
 import style from "../../styles/Cart.module.scss"
 import Link from "next/link"
 
@@ -43,21 +43,23 @@ const CartTable = () => {
 
 
     const handleCartAmount = (value, index) => {
-        let copyCart = cart
-        copyCart[index].productAmount = parseInt(value)
-        copyCart[index].total = parseFloat(copyCart[index].price*parseInt(value))
-        setCart(copyCart)
-        let total = 0
-        copyCart.map(it => {
-            total += parseFloat(it.price * it.productAmount) 
-        })
-        setTotal(total)
-        setStorage(true)
+        if(value > 0 && value < 99) {
+            let copyCart = cart
+            copyCart[index].productAmount = parseInt(value)
+            copyCart[index].total = parseFloat(copyCart[index].price*parseInt(value))
+            setCart(copyCart)
+            let total = 0
+            copyCart.map(it => {
+                total += parseFloat(it.price * it.productAmount) 
+            })
+            setTotal(total)
+            setStorage(true)
+        }
     }
 
     return (
         <div className={style.itemList}>
-            { cart ? <>
+            { cart?.length > 0 ? <>
             <div className="oneEm">
             <table>
                     <thead>
@@ -72,9 +74,9 @@ const CartTable = () => {
                                         <td><button onClick={() => removeItem(item.name)} className={style.removeBtn}>x</button></td>
                                         <td className={style.imgCart}><img src={item.image}/></td>
                                         <td>{item.name}</td>
-                                        <td>{`€${item.price.toFixed(2)}`}</td>
-                                        <td><input type="number" value={item.productAmount} onChange={(e) => handleCartAmount(e.target.value, index)} min="1"/></td>
-                                        <td>{`€${item.total.toFixed(2)}`}</td>
+                                        <td>{`€${item.price?.toFixed(2)}`}</td>
+                                        <td><input type="number" inputMode="numeric" value={item.productAmount > 0 ? item.productAmount : 1} onChange={(e) => handleCartAmount(e.target.value, index)} min="1" max="99"/></td>
+                                        <td>{`€${item.total ? item.total?.toFixed(2) : item.price}`}</td>
                                     </tr>)
                         })
                     }
@@ -86,7 +88,7 @@ const CartTable = () => {
                     <span className={style.totalTitle}><h2>Warenkorp-Summe</h2></span>
                     <div className={style.totalAmount}>
                         <span>Betrag</span>
-                        <span>{`€${total ? total.toFixed(2) : ""}`}</span>
+                        <span>{`€${total ? total?.toFixed(2) : ""}`}</span>
                     </div>
                 </div>
                 <div className={style.totalBtnSection}>

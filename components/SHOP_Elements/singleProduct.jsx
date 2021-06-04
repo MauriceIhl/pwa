@@ -7,7 +7,9 @@ const SingleProduct = ( {product, suggestions} ) => {
 
     const[amount, setAmount] = useState(1)
     const handleAmount = ( value ) => {
-        setAmount(value)
+        if(value > 0 && value < 99) {
+            setAmount(value)
+        }
     }
 
     return (
@@ -22,7 +24,7 @@ const SingleProduct = ( {product, suggestions} ) => {
                     <span>{product.price}</span>
                     <div dangerouslySetInnerHTML={{ __html: product.description }}></div>
                     <div>
-                        <input type="number" onChange={e => handleAmount(e.target.value)} value={amount} min="1"/>
+                        <input type="number" inputMode="numeric" onChange={e => handleAmount(e.target.value)} value={amount} min="1"/>
                         <AddToCart product={product} amount={amount}></AddToCart>  
                     </div>
                 </div>  
