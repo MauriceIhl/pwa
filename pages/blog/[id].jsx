@@ -65,6 +65,7 @@ const BlogPage = ( {params, data}) => {
         <div className={styles.singleBlog}>
           <h2>{post.title}</h2>
           <div dangerouslySetInnerHTML={{__html: post.content}}></div>
+          <br/>
           <Link href="/blog">
             <a><button>Zurück</button></a>
           </Link>
