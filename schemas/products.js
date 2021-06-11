@@ -2,7 +2,7 @@ import { gql } from "@apollo/client"
 
 export const PRODUCTS = gql`
  query Products {
-    products {
+  products {
       nodes {
         image {
           sourceUrl
