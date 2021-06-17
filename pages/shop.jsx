@@ -18,6 +18,7 @@ export async function getStaticProps() {
         }
     }
 }
+//update app
   
 const Shop = ( {data} ) => {
 

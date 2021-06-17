@@ -30,6 +30,7 @@ const Blog = ({data}) => {
                     return(
                         <div className={styles.blogPreview} key={post.id}>
                             <h2>{post.title}</h2>
+                            
                             <div dangerouslySetInnerHTML={{__html: post.excerpt}} className={styles.bloginnerHTML}></div>
                             <br />
                             <Link href={`/blog/${post.slug}-${post.id}`}>
