@@ -46,7 +46,6 @@ const SingleProduct = ( {product, suggestions} ) => {
                             <div className={styles.productSpecsPreview}>
                                 <span>{suggestion.name}</span>
                                 <span>{suggestion.price}</span>
-                                <div dangerouslySetInnerHTML={{ __html: suggestion.description }}></div>
                             </div>
                         </div>
                     )

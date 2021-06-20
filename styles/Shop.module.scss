@@ -6,8 +6,30 @@ $background: #f5f5f5;
     width: 100%;
     position: relative;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+
+    .notificationBanner {
+        background-color: #f5f5f5;
+        max-width: 1200px;
+        width: 100%;
+        padding: 1em 1.5em;
+        font-size: 12px;
+        border: 1px solid #eee;
+
+        h3 {
+            margin: .3em 0;
+        }
+    }
+
+    .rowNotifacte {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        position: relative;
+        align-items: flex-end;
+    }
 
     .shopWindow {
         width: 100%;
@@ -59,9 +81,14 @@ $background: #f5f5f5;
         @media all and (min-width:490px) {
             .shopWindow {
                 padding: 2.8em 2.4em; 
-                margin: 4em 20px; 
+                margin: 0 20px 4em 20px; 
                 max-width: 1200px;
             }     
+
+            .notificationBanner {
+                padding-left: calc(6em + 20px);
+                padding-right: calc(6em + 20px);
+            }
         }
           
     .shopImg {
@@ -93,5 +120,84 @@ $background: #f5f5f5;
     box-sizing: border-box;
 }
 
+/* ----------------------------------- Notification Banner ----------------------------- */
+
+.blog::before {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -2;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    background-color: $background;
+    box-sizing: border-box;
+}
+
+.toggleBtn {
+    position: relative;
+    left: 0;
+    z-index: 10;
+    border-color: transparent;
+    color: transparent;
+    background-color: transparent;
+}
+
+.toggleBtn:focus {
+    color: transparent;
+}
+
+.toggleBtn:hover {
+    color: transparent;
+}
+
+.pushBtn {
+    font-size: 12px;
+}
 
 
+.toggleOff, .toggleOn {
+    position: absolute;
+    z-index: 0;
+    left: 0;
+    width: 60px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 25px;
+    bottom: 0;
+}
+
+.toggleOff::before {
+    position: absolute;
+    content: "";
+    top: 5px;
+    left: 5px;
+    height: 20px;
+    width: 20px;
+    border-radius: 10px;
+    background-color: black;
+}
+
+.toggleOn {
+    position: absolute;
+    z-index: 0;
+    left: 0;
+    width: 60px;
+    height: 30px;
+    border: 1px solid black;
+    background: black;
+    border-radius: 25px;
+    bottom: 0;
+}
+
+.toggleOn::before {
+    position: absolute;
+    content: "";
+    top: 5px;
+    left: 35px;
+    height: 20px;
+    width: 20px;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+}

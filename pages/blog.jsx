@@ -4,7 +4,7 @@ import { BLOGS } from "../schemas/blog"
 import client from "../client"
 import styles from "../styles/Blog.module.scss"
 import Link from "next/link"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
 
 export async function getStaticProps() {
@@ -21,44 +21,37 @@ export async function getStaticProps() {
 
 const Blog = ({data}) => {
 
-    const[permission, setPermission] = useState(false)
+    const[installWindow, setInstallWindow] = useState(false)
 
-    //localStorage.setItem("TotalCartAmount", JSON.stringify(total))
-
-    const handlePermission = () => {
-        if(!permission ) {
-            setPermission(true)
-            
-        } else {
-            setPermission(false)
-        }
+    const handleInstallGuide = () => {
+        setInstallWindow(!installWindow)
     }
-
-    const notification = async () => {
-        const acception = await Notification.requestPermission() 
-        if (acception === 'granted' && permission) {
-            const notificate = new Notification("Hallo", {
-                body: 'Das ist eine Benachrichtigung',
-                icon: 'icons/iconx512.png',
-            })
-          } 
-        }
 
   
     return (
         <>
         <Menu></Menu>
         <main className={styles.blog}>
-        <div className={styles.notificationBanner}>
-                    <h3>Nutze unsere Benachrichtigungen</h3>
-                    <p>Aktiviere gern unsere Benachrichtigungen, um keine Trends, Rabattaktionen und Blogbeiträge zu verpassen.</p>
-                    <div className={styles.rowNotifacte}>
-                    <button onClick={handlePermission} className={styles.toggleBtn}>B</button>
-                        <div className={!permission ? styles.toggleOff : styles.toggleOn}></div>
-                        {
-                            permission ? <button onClick={notification} className={styles.pushBtn}>Testen</button> :""
-                        }
+            <div className={styles.installBanner}>
+                <div className={styles.innerInstallBanner}>
+                    <p>Jetzt auch offline Blogs lesen</p>
+                    <button onClick={handleInstallGuide} className={styles.installBtn}><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M9 2h6v1h-6v-1zm6-1v-1h-6v1h6zm-5.146 21l-1.854 2h8l-1.854-2h-4.292zm10.146-14h-5v-4h-6v4h-5l8 8 8-8zm-2 11h-12v-6.172l-2-2v10.172h16v-10.172l-2 2v6.172z"/></svg></button>
+                </div>
+                <div className={installWindow ? styles.installGuideOn : styles.installGuideOff}>
+                    <button onClick={handleInstallGuide} className={styles.installBtn}>X</button>
+                    <div>
+                        <h3>Im Samsung Internet und Google Chrome Browser installieren</h3>
+                        <p>1. Im Browser rechts oben 3 Punkte wählen</p>
+                        <p>2. Zum Bildschirm hinzufügen</p>
+                        <br />
                     </div>
+                    <div>
+                        <h3>Im Safari Browser unter iOS installierern</h3>
+                        <p>1. Im Browser unten das Teilen Icon wählen</p>
+                        <p>2. Zum Add-to-Homescreen scrollen</p>
+                        <p>3. Zum Bildschirm hinzufügen</p>
+                    </div>
+                </div>
             </div>
             <div className={styles.blogWindow}>
             {

@@ -1,5 +1,3 @@
-$background: #f5f5f5; 
-
 .blog {
     width: 100%;
     position: relative;
@@ -7,14 +5,7 @@ $background: #f5f5f5;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    .rowNotifacte {
-        display: flex;
-        justify-content: space-between;
-        flex-direction: row;
-        position: relative;
-        align-items: flex-end;
-    }
+    background-color: #f5f5f5;
 
     .blogWindow {
         width: 100%; 
@@ -33,18 +24,6 @@ $background: #f5f5f5;
         padding: 1.5em 0;
     }
 
-    .notificationBanner {
-        background-color: rgb(250, 250, 250);
-        max-width: 1200px;
-        width: 100%;
-        padding: 1em 1.5em;
-        font-size: 12px;
-
-        h3 {
-            margin: .3em 0;
-        }
-    }
-
     .blogPreview:last-child {
         border: none;
     }
@@ -60,10 +39,6 @@ $background: #f5f5f5;
                 padding: 4em 5em;
             }
         } 
-        .notificationBanner {
-            padding-left: calc(6em + 20px);
-            padding-right: calc(6em + 20px);
-        }
         
         .singleBlog {
             padding: 5.34em 6.67em;
@@ -71,82 +46,83 @@ $background: #f5f5f5;
     }
 }
 
-.blog::before {
-    content: "";
-    display: block;
-    position: absolute;
-    z-index: -2;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 100vw;
-    background-color: $background;
-    box-sizing: border-box;
-}
+/* ----------------- Install Banner ------------------------*/
 
-.toggleBtn {
-    position: relative;
-    left: 0;
-    z-index: 10;
-    border-color: transparent;
-    color: transparent;
-    background-color: transparent;
-}
-
-.toggleBtn:focus {
-    color: transparent;
-}
-
-.toggleBtn:hover {
-    color: transparent;
-}
-
-.pushBtn {
-    font-size: 12px;
+@media all and (display-mode: standalone) {
+    .installBanner {
+        display: none;
+    }
 }
 
 
-.toggleOff, .toggleOn {
-    position: absolute;
-    z-index: 0;
-    left: 0;
-    width: 60px;
-    height: 30px;
-    border: 1px solid black;
-    border-radius: 25px;
-    bottom: 0;
+@media all and (display-mode: browser) {
+    .installBanner{
+        width: 100%;
+        max-width: 100%;
+        padding: 0 1.5em;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        background: rgb(247, 247, 247);
+    
+        .innerInstallBanner{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1200px;
+            border: 1px solid #eee;
+           
+    
+            .installBtn{
+                background: transparent;
+                border: none;
+                color: black;
+                padding: 0 .2em;
+            }
+        }
+    
+        .installGuideOff{ 
+            position: absolute;
+            display: none;
+        }
+    
+        .installGuideOn{
+            position: absolute;
+            margin: 1em 0; 
+            width: calc(100% - 3em);
+            padding: 1.5em 2em;
+            background: rgb(247, 247, 247);
+            box-shadow: 5px 26px 50px 31px rgba(0,0,0,0.5); 
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            max-width: 1200px;
+            border-radius: 5px;
+    
+            button{
+                padding: .6em;
+                border-radius: 20px;
+                width: 30px;
+                height: 30px;
+            }
+
+            div {
+                width: 100%;
+            }
+        }              
+    }
 }
 
-.toggleOff::before {
-    position: absolute;
-    content: "";
-    top: 5px;
-    left: 5px;
-    height: 20px;
-    width: 20px;
-    border-radius: 10px;
-    background-color: black;
-}
+@media all and (min-width:490px) {
+    .installBanner {
 
-.toggleOn {
-    position: absolute;
-    z-index: 0;
-    left: 0;
-    width: 60px;
-    height: 30px;
-    border: 1px solid black;
-    background: black;
-    border-radius: 25px;
-    bottom: 0;
-}
+        .innerInstallBanner {
+            padding: 0 6.5em;
+        }
 
-.toggleOn::before {
-    position: absolute;
-    content: "";
-    top: 5px;
-    left: 35px;
-    height: 20px;
-    width: 20px;
-    border-radius: 10px;
-    background-color: rgb(255, 255, 255);
+        .installGuideOn{
+            padding: 1em 3em;
+        }
+    }
 }
