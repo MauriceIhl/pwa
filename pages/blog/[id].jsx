@@ -6,6 +6,7 @@ import Menu from "../../components/DOM_Elements/menu"
 import { useEffect, useState } from "react"
 import styles from "../../styles/Blog.module.scss"
 import Link from "next/link"
+import { useRouter } from 'next/router'
 
 
 export async function getStaticProps({ params }) {
@@ -41,7 +42,7 @@ export async function getStaticProps({ params }) {
   })
   return {
       paths: pathsData, 
-      fallback: false
+      fallback: true
   }
 }
 
@@ -49,6 +50,7 @@ export async function getStaticProps({ params }) {
 const BlogPage = ( {params, data}) => {
     
   const[post, setPost] = useState("")
+
   useEffect(() => {
     data?.posts?.nodes.map(content =>{
       if(`${content.slug}-${content.id}` === params.id) {
@@ -56,6 +58,11 @@ const BlogPage = ( {params, data}) => {
       }
     })
   })
+
+  const router = useRouter()
+  if (router.isFallback) {
+    return <div>Du bist Offline</div>
+  }
 
   return (
     <>

@@ -15,7 +15,8 @@ export async function getStaticProps() {
   return {
       props: {
           data: data?.pageBy?.content
-      }
+      },
+      revalidate: 1,
   }
 }
 

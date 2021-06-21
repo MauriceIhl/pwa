@@ -16,7 +16,8 @@ export async function getStaticProps() {
     return {
         props: {
             data: data?.products?.nodes
-        }
+        },
+        revalidate: 1,
     }
 }
 //update app

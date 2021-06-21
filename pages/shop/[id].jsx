@@ -6,6 +6,7 @@ import Footer from "../../components/DOM_Elements/footer"
 import Menu from "../../components/DOM_Elements/menu"
 import { useEffect, useState } from "react"
 import styles from "../../styles/Shop.module.scss"
+import { useRouter } from 'next/router'
 
 
 export async function getStaticProps({ params }) {
@@ -43,7 +44,7 @@ export async function getStaticProps({ params }) {
 
   return {
       paths: pathsData, 
-      fallback: false
+      fallback: true
   }
 }
 
@@ -63,6 +64,11 @@ const ProductPage = ({params, data}) => {
       }
     })
   }, [singleProduct])
+
+  const router = useRouter()
+  if (router.isFallback) {
+    return <div>Du bist Offline</div>
+  }
 
   return (
     <>
