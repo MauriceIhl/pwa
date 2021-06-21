@@ -2,6 +2,7 @@ import AddToCart from "../../components/Functions/cart"
 import { useState } from "react"
 import styles from "../../styles/SingleProduct.module.scss"
 import Image from "next/image" 
+import Link from "next/link"
 
 const SingleProduct = ( {product, suggestions} ) => {
 
@@ -40,9 +41,9 @@ const SingleProduct = ( {product, suggestions} ) => {
                 suggestions ? suggestions.map(suggestion => {
                     return (
                         <div key={suggestion.id} className={styles.suggestion}>
-                            <a href={`/shop/${suggestion.slug}`}>
+                            <Link href={`/shop/${suggestion.slug}`} passHref>
                                 <Image src={suggestion.image.sourceUrl} alt={suggestion.altText} className={styles.previewImage} height="250" width="250"/>
-                            </a>
+                            </Link>
                             <div className={styles.productSpecsPreview}>
                                 <span>{suggestion.name}</span>
                                 <span>{suggestion.price}</span>

@@ -54,23 +54,23 @@ const ProductPage = ({params, data}) => {
   const [suggestions, setSuggestions] = useState([])
   const [singleProduct, setSingleProduct] = useState("")
 
-
+  useEffect(() => {
+    setSuggestions("")
+    products.map(product => {
+      if(params.id == product.slug) {
+        setSingleProduct(product)
+      } else {
+        setSuggestions(suggestions => [...suggestions, product])
+      }
+    })
+  }, [singleProduct])
 
   const router = useRouter()
   if (router.isFallback) {
     return <div>Du bist Offline</div>
-  }  else {
-    useEffect(() => {
-      setSuggestions("")
-      products.map(product => {
-        if(params.id == product.slug) {
-          setSingleProduct(product)
-        } else {
-          setSuggestions(suggestions => [...suggestions, product])
-        }
-      })
-    }, [singleProduct])
-  } return (
+  }  
+
+  return (
     <>
     <Menu></Menu>
     <main className={styles.shop}>
