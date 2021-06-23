@@ -20,7 +20,7 @@ const Checkout = () => {
                 </div>
                     <div className={styles.connectionBanner}>
                         <Link href={"/checkout"}>
-                            <button onClick={testConnection}>Bestellen</button>
+                            <button>Bestellen</button>
                         </Link>
                     </div>
             </div>
