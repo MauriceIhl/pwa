@@ -1,5 +1,4 @@
 import styles from "../../styles/Checkout.module.scss"
-import { Context } from "../context"
 import { useState, useEffect } from "react"
 
 const CheckoutPayment = () => {
@@ -15,8 +14,6 @@ const CheckoutPayment = () => {
         setAmount(totalAmount)
         setCart(storeCart)
     })
-
-    console.log(cart)
 
 
     return (

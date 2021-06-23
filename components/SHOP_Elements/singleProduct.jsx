@@ -4,7 +4,7 @@ import styles from "../../styles/SingleProduct.module.scss"
 import Image from "next/image" 
 import Link from "next/link"
 
-const SingleProduct = ( {product, suggestions} ) => {
+const SingleProduct = ( {product} ) => {
 
     const[amount, setAmount] = useState(1)
     const handleAmount = ( value ) => {
@@ -34,24 +34,12 @@ const SingleProduct = ( {product, suggestions} ) => {
             <div className={styles.desc}>
                 <span><strong>Beschreibung</strong></span>
                 <div dangerouslySetInnerHTML={{ __html: product.description }}></div>
-                <h2>Ähnliche Produkte</h2>
             </div>
-            <div className={styles.suggesionSection}>
-            {
-                suggestions ? suggestions.map(suggestion => {
-                    return (
-                        <div key={suggestion.id} className={styles.suggestion}>
-                            <Link href={`/shop/${suggestion.slug}`} passHref>
-                                <Image src={suggestion.image.sourceUrl} alt={suggestion.altText} className={styles.previewImage} height="250" width="250"/>
-                            </Link>
-                            <div className={styles.productSpecsPreview}>
-                                <span>{suggestion.name}</span>
-                                <span>{suggestion.price}</span>
-                            </div>
-                        </div>
-                    )
-                } ) : ""
-            }
+            <div>
+                <Link href={"/shop"}>
+                    <button>Zurück zum Shop</button>
+                </Link>
+                <br />
             </div>
         </div>
     )

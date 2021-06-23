@@ -3,10 +3,10 @@ import Footer from "../components/DOM_Elements/footer"
 import CheckoutForm from "../components/SHOP_Elements/checkoutForm"
 import CheckoutPayment from "../components/SHOP_Elements/checkoutPayment"
 import styles from "../styles/Shop.module.scss"
+import { useEffect, useState } from "react"
+import Link from "next/link"
 
 const Checkout = () => {
-
-    // Stripe Functions goes here
 
     return(
     <div>
@@ -18,6 +18,11 @@ const Checkout = () => {
                    <CheckoutForm></CheckoutForm>
                    <CheckoutPayment></CheckoutPayment>
                 </div>
+                    <div className={styles.connectionBanner}>
+                        <Link href={"/checkout"}>
+                            <button onClick={testConnection}>Bestellen</button>
+                        </Link>
+                    </div>
             </div>
         </main>
         <Footer></Footer>
