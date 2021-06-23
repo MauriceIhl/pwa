@@ -6,9 +6,6 @@ module.exports = withPWA({
     pwa: {
         dest: 'public', 
         runtimeCaching,
-        fallbacks: {
-            document: '/offline',
-          }
     }, 
     images: {
         domains: ['website.mi-portfolio.de']
