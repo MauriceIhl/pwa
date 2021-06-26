@@ -2515,11 +2515,14 @@ header {
         align-items: center;
         flex-direction: row;
         justify-content: space-between;
-        width: 100%;
-        
+        width: 75%;
+        }
 
         .menuItem {
-          width: 25%;
+          width: 33.33%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
 
           span {
             display: none;
@@ -2527,20 +2530,22 @@ header {
           svg {
             display: block;
             height: 100%;
-            text-align: center;
+            text-align: left;
           }
         }
-      }
+      
     }
   }
-}
 
 .cartIcon {
+  width: 25%;
+  text-align: center;
+
   svg {
     display: block !important;
   }
 }
-
+}
 
 /* --------------- Footer Design ---------------- */
 
@@ -2656,3 +2661,6 @@ img {
   }
 }
 
+.fallbackmain {
+  padding: 1.5em;
+}

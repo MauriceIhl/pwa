@@ -10,9 +10,12 @@ return (
       <title>next-pwa example</title>
     </Head>
     <Menu></Menu>
-    <main>
+    <main className="fallbackmain">
     <h2>Du bist Offline</h2>
-    <p>Probiere es später nochmal erneut</p>
+    <p>Probiere es später noch einmal.</p>
+    <br/>
+    <button type="submit">Neu laden</button>
+    <br/>
     </main>
     <Footer></Footer>
   </>
