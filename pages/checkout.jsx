@@ -23,6 +23,7 @@ const Checkout = () => {
                             <button>Bestellen</button>
                         </Link>
                     </div>
+                    <br/>
             </div>
         </main>
         <Footer></Footer>

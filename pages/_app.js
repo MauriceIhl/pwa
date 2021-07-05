@@ -55,16 +55,10 @@ function MyApp({ Component, pageProps}) {
         type="image/png"
         sizes="32x32"
       />
-      <link rel="apple-touch-icon" href="/apple-icon.png"></link>
+      <link rel="apple-touch-icon" href="/icons/iconx72.png"></link>
       <meta name="theme-color" content="#317EFB" />
     </Head>
-    <ApolloProvider client={client}> 
-              <GlobalProvider>
-                <Component {...pageProps} />
-                </GlobalProvider>
-              </ApolloProvider>
-    
-    {/* {
+    {
      access ? <ApolloProvider client={client}> 
               <GlobalProvider>
                 <Component {...pageProps} />
@@ -73,13 +67,13 @@ function MyApp({ Component, pageProps}) {
     :
     <div className="accessWindow">
       <div className="accessBox">
-      <p>Diese Seite dient nur zu Demonstrationszwecken im Rahmen einer Untersuchung. Diese Seite nutzt den LocalStorage.</p>
+      <p>Diese Seite dient nur zu Demonstrationszwecken im Rahmen einer Untersuchung. Diese Seite nutzt den lnpm ocalStorage.</p>
       <label>Passwort</label>
       <input onChange={(e) => handleInput(e.target.value)} className="pwaccess"></input>
       <button type="submit" onClick={handleSubmit}>Einverstanden</button>
       </div>
     </div>
-   } */}
+    }
  </> 
  )
 }

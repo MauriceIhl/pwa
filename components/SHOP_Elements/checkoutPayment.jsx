@@ -20,8 +20,8 @@ const CheckoutPayment = () => {
         <div className={styles.paymentSection}>
             <div className={styles.borderPayment}>
                 <h3>Deine Bestellung</h3>
-                <div className="table">
-                    <div>
+                <div className={styles.tableCart}>
+                    <div className={styles.tableCartField}>
                         <span>Produkt</span>
                         <span>Zwischensumme</span>
                     </div>
@@ -29,15 +29,14 @@ const CheckoutPayment = () => {
                 {
                     cart ? cart.map(item => {
                         return (
-                            <div key={item.id}>
+                            <div key={item.id} className={styles.tableCartField}>
                                 <span>{`${item.name} x${item.productAmount}`}</span>
                                 <span>{`€${item.total}`}</span>
                             </div>
-                            
                         )
                     }) : ""
                 }
-                    <div>
+                    <div className={styles.tableCartField}>
                         <span>Gesamtsumme</span>
                         <span>{`€${amount}`}</span>
                     </div>

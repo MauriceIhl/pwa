@@ -75,7 +75,13 @@ const CartTable = () => {
                                         <td className={style.imgCart}><img src={item.image}/></td>
                                         <td>{item.name}</td>
                                         <td>{`€${item.price?.toFixed(2)}`}</td>
-                                        <td><input type="number" inputMode="numeric" value={item.productAmount > 0 ? item.productAmount : 1} onChange={(e) => handleCartAmount(e.target.value, index)} min="1" max="99"/></td>
+                                        <td><select type="number" onChange={e => handleCartAmount(e.target.value, index)} value={item.productAmount > 0 ? item.productAmount : 1} className="productAmount">
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                </select></td>
                                         <td>{`€${item.total ? item.total?.toFixed(2) : item.price}`}</td>
                                     </tr>)
                         })
@@ -85,7 +91,7 @@ const CartTable = () => {
             </div>   
             <div className="oneEm">
                 <div className={style.total}>
-                    <span className={style.totalTitle}><h2>Warenkorp-Summe</h2></span>
+                    <span className={style.totalTitle}><h2>Warenkorb-Summe</h2></span>
                     <div className={style.totalAmount}>
                         <span>Betrag</span>
                         <span>{`€${total ? total?.toFixed(2) : ""}`}</span>
@@ -97,7 +103,7 @@ const CartTable = () => {
                </div>
             </div>
             </>
-            : <div className="oneEm">Keine Produkte im Warenkorp</div>}
+            : <div className="oneEm">Keine Produkte im Warenkorb</div>}
         </div>
     )
 

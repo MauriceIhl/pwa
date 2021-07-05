@@ -10,7 +10,7 @@ const CartOverview = () => {
         <Menu></Menu>
         <main className={styles.shop}>
             <div className={styles.shopWindow}>
-                <div className="oneEm"><h1>Warenkorp</h1></div>
+                <div className="oneEm"><h1>Warenkorb</h1></div>
                  <CartTable></CartTable>
             </div>
         </main>

@@ -7,7 +7,7 @@ const OfflinePage = () => {
 return (
   <>
     <Head>
-      <title>next-pwa example</title>
+      <title>Offline Page Test</title>
     </Head>
     <Menu></Menu>
     <main className="fallbackmain">

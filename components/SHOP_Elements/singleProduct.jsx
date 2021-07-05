@@ -25,7 +25,13 @@ const SingleProduct = ( {product} ) => {
                     <span>{product.price}</span>
                     <div dangerouslySetInnerHTML={{ __html: product.description }}></div>
                     <div>
-                        <input type="number" inputMode="numeric" onChange={e => handleAmount(e.target.value)} value={amount} min="1"/>
+                        <select type="number" onChange={e => handleAmount(e.target.value)} value={amount} className="productAmount">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
                         <AddToCart product={product} amount={amount}></AddToCart>  
                     </div>
                 </div>  

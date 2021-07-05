@@ -48,7 +48,7 @@ const CheckoutForm = () => {
             <div className={!mail ? style.faileValidation : ""}>
             </div>
             <div className="oneEm"><h2>Anmerkungen</h2><span></span></div>
-            <div className="oneEm"><textarea name="textarea" cols="30" rows="10" placeholder="E-mail Adresse für eine Bestätigung der Testbestellung angeben." readOnly></textarea></div>
+            <div className="oneEm"><textarea name="textarea" cols="30" rows="10" placeholder="Dies ist nur eine Dummy-Checkoutseite" readOnly></textarea></div>
         </div>
     )
 }

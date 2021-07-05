@@ -61,6 +61,8 @@ button:hover {
 
 $black: #1C1C1C;
 
+
+/* --------------- CSS Wordpress Libary  ------------------ */
 /**
  * Colors
  */
@@ -2350,12 +2352,14 @@ header {
     align-items: center;
     position: relative;
 
-    .menuItem {
-      svg {
-        display: none;
+    .mobile {
+      .menuItem {
+        svg {
+          display: none;
+        }
       }
     }
-
+ 
     .toggle {
       height: 30%;
       display: flex;
@@ -2478,10 +2482,6 @@ header {
       .menuItem {
         padding: 0 1em;
         font-size: 100%;
-
-        svg {
-          display: none;
-        }
       }
 
       .menuItem:hover {
@@ -2524,9 +2524,6 @@ header {
           justify-content: center;
           align-items: center;
 
-          span {
-            display: none;
-          }
           svg {
             display: block;
             height: 100%;
@@ -2663,4 +2660,10 @@ img {
 
 .fallbackmain {
   padding: 1.5em;
+}
+
+.productAmount {
+  width: 50px;
+  height: 35px;
+  margin-right: 20px;
 }

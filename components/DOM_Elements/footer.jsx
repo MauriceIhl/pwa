@@ -5,7 +5,7 @@ const Footer = () => {
             <div className="footerSection">
                 <div className="footerDescription">
                     <h3>Das ist eine Footer</h3>
-                    <p>Qui dolore ipsum quia dolor sit amet, consec tetur adipisci velit, sed quia non numquam.</p>
+                    <p>Hier steht ein Beispieltext</p>
                 </div>
                 <div className="footerSM">
                     <h3>Soziale Kanäle</h3>
@@ -17,7 +17,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="footerPrivacy">
-                    <h3>Wichtige Links</h3>
+                    <h3>Keine Links</h3>
                     <ul>
                         <li>Privacy Policy</li>
                         <li>Shipping Details</li>
