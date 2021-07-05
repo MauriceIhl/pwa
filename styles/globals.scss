@@ -2474,7 +2474,7 @@ header {
 
       .mobile {
         display: flex;
-        position: relative;
+
         align-items: center;
         flex-direction: row;
       }  
@@ -2491,16 +2491,16 @@ header {
   } 
 }
 
-@media all and (max-width:860px) and (display-mode: standalone) {
+@media all and (max-width:860px) and (display-mode: standalone) { 
   header {
     position: fixed;
     bottom: 0;
     background-color: white;
     border-top: 1px solid lightgrey; 
     z-index: 10; 
+    display: flex;
 
     .menuBar {
-
       input {
         display: none;
       }
@@ -2523,9 +2523,14 @@ header {
           display: flex;
           justify-content: center;
           align-items: center;
+          opacity: 1;
+
+          span {
+            display: none;
+          }
 
           svg {
-            display: block;
+            display: block !important;
             height: 100%;
             text-align: left;
           }
@@ -2537,10 +2542,6 @@ header {
 .cartIcon {
   width: 25%;
   text-align: center;
-
-  svg {
-    display: block !important;
-  }
 }
 }
 
