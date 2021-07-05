@@ -2359,6 +2359,11 @@ header {
         }
       }
     }
+
+    .cartIcon {
+      display: flex !important;
+      flex-direction: row !important;
+    }
  
     .toggle {
       height: 30%;
@@ -2542,6 +2547,8 @@ header {
 .cartIcon {
   width: 25%;
   text-align: center;
+  display: flex !important;
+  flex-direction: row !important;
 }
 }
 
