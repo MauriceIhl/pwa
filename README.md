@@ -1,6 +1,6 @@
 # Headless Wordpress PWA mit Next.js
 
-Eine simple Next.js Applikation, welche im Rahmen einer wissenschaftlichen Arbeit erstellt wurde. 
+Eine simple Next.js Applikation, welche im Rahmen einer Untersuchung erstellt wurde. 
 Mitunter bestand das Ziel den Status quo einer PWA hinsichtlich Funktionen und Browserunterstützung zu ermitteln sowie die Möglichkeiten darzustellen, an ein bestehendes CMS wie Wordpress headless anknüpfen zu können. 
 
 ## Zugang
